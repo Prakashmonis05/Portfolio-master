@@ -371,6 +371,10 @@ header.sticky {
     nav {
         width: 220px;
     }
+    
+    .comp {
+        margin-top: 10px;
+    }
 }
 
 /* Common Container Style */

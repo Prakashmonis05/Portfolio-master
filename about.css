@@ -256,7 +256,7 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
     .about-container {
-        padding: 130px 40px 80px;
+        padding: 70px 40px 80px;
     }
 
     .about-heading {
@@ -301,6 +301,10 @@
 }
 
 @media (max-width: 768px) {
+    .about-container {
+        padding: 50px 30px 80px;
+    }
+
     .about-section {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -327,7 +331,7 @@
 
 @media (max-width: 480px) {
     .about-container {
-        padding: 60px 20px 60px;
+        padding: 35px 20px 60px;
     }
 
     .page-title {
