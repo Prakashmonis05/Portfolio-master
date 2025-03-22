@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #f5f5f5;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Particles Background */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Fallback animated background if particles.js doesn't load */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #121212;
+    z-index: -1;
+}
+
+#particles-js::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 51, 51, 0.05), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(255, 51, 51, 0.05), transparent 30%);
+    animation: pulse-bg 8s infinite alternate;
+}
+
+@keyframes pulse-bg {
+    0% {
+        background-position: 0% 0%;
+        opacity: 0.5;
+    }
+    50% {
+        background-position: 100% 20%;
+        opacity: 0.8;
+    }
+    100% {
+        background-position: 50% 100%;
+        opacity: 0.5;
+    }
+}
+
+/* Header & Navigation */
+header {
+    background-color: #000;
+    /* backdrop-filter: blur(10px); */
+    box-shadow: 0 2px 20px rgba(255, 0, 0, 0.2);
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+header:hover {
+    box-shadow: 0 4px 25px rgba(255, 0, 0, 0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.logo-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #ff3333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.logo-circle::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%);
+    top: -100%;
+    left: -100%;
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        top: -100%;
+        left: -100%;
+    }
+
+    20% {
+        top: 100%;
+        left: 100%;
+    }
+
+    100% {
+        top: 100%;
+        left: 100%;
+    }
+}
+
+.logo:hover .logo-circle {
+    transform: rotate(360deg);
+    box-shadow: 0 0 15px #ff3333;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+.logo:hover .logo-text {
+    color: #ff3333;
+    text-shadow: 0 0 5px rgba(255, 51, 51, 0.5);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 16px;
+    position: relative;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ff3333;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff3333;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a.active {
+    color: #ff3333;
+}
+
+.contact-btn {
+    background-color: transparent;
+    color: #f5f5f5;
+    border: 1px solid #ff3333;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ff3333;
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.contact-btn:hover {
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+}
+
+.contact-btn:hover::before {
+    width: 100%;
+}
+
+.contact-btn.active {
+    background-color: #ff3333;
+    color: white;
+}
+
+/* Sticky Header */
+header.sticky {
+    padding: 10px 50px;
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+}
+
+/* Mobile Navigation Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    margin-left: auto;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 992px) {
+    header {
+        padding: 15px 30px;
+    }
+    
+    header.sticky {
+        padding: 10px 30px;
+    }
+    
+    nav ul {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        padding: 80px 20px;
+        transition: all 0.5s ease;
+        z-index: 1000;
+    }
+    
+    nav.active {
+        right: 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Make sure the nav is visible when active */
+    header nav.active {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav a {
+        display: block;
+        padding: 10px 0;
+        font-size: 18px;
+    }
+    
+    /* Hide the contact button on mobile */
+    .contact-btn {
+        display: none;
+    }
+    
+    /* Add contact link to the mobile menu instead */
+    nav ul li:last-child {
+        margin-top: 20px;
+    }
+    
+    /* Special styling for contact link in mobile nav */
+    nav ul li a[href="contact.html"] {
+        color: #ff3333;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px 20px;
+    }
+    
+    header.sticky {
+        padding: 10px 20px;
+    }
+    
+    .logo-text {
+        font-size: 16px;
+    }
+    
+    .logo-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    nav {
+        width: 220px;
+    }
+}
+
+/* Common Container Style */
+.comp {
+    margin-top: 60px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
