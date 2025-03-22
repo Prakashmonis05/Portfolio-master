@@ -200,6 +200,42 @@
     left: 100%;
 }
 
+.contact-btn-alt {
+    background-color: transparent;
+    color: #f5f5f5;
+    border: 1px solid #ff3333;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.contact-btn-alt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ff3333;
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.contact-btn-alt:hover {
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+    transform: translateY(-3px);
+}
+
+.contact-btn-alt:hover::before {
+    width: 100%;
+}
+
 .hire-btn {
     background-color: transparent;
     color: #f5f5f5;
@@ -448,6 +484,11 @@
     .cta-buttons {
         flex-direction: column;
         gap: 15px;
+    }
+    
+    .portfolio-btn, .contact-btn-alt {
+        width: 100%;
+        justify-content: center;
     }
     
     .badge {
