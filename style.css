@@ -343,20 +343,29 @@ header.sticky {
 @media (max-width: 480px) {
     header {
         padding: 15px 20px;
+        flex-wrap: nowrap;
     }
     
     header.sticky {
         padding: 10px 20px;
     }
     
+    .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    
     .logo-text {
         font-size: 16px;
+        white-space: nowrap;
     }
     
     .logo-circle {
         width: 35px;
         height: 35px;
         font-size: 18px;
+        margin-right: 5px;
     }
     
     nav {

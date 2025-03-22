@@ -101,3 +101,36 @@
 .project-link:hover {
     text-decoration: underline;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 80px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-wrap: nowrap;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    
+    .logo-text {
+        white-space: nowrap;
+    }
+    
+    .projects-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
