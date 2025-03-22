@@ -42,7 +42,7 @@
 
 /* About Page Specific Styles */
 .about-container {
-    padding: 100px 80px 100px;
+    padding: 80px 80px 100px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -327,7 +327,7 @@
 
 @media (max-width: 480px) {
     .about-container {
-        padding: 120px 20px 60px;
+        padding: 60px 20px 60px;
     }
 
     .page-title {

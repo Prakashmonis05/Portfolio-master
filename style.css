@@ -375,7 +375,7 @@ header.sticky {
 
 /* Common Container Style */
 .comp {
-    margin-top: 60px;
+    margin-top: 30px;
     position: relative;
     width: 100%;
     z-index: 1;
